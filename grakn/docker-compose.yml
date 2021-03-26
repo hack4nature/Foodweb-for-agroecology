@@ -1,0 +1,19 @@
+version: "3.3"
+
+services:
+  grakn:
+    container_name: grakn
+    image: graknlabs/grakn:1.8.4
+    networks:
+      - grakn-network
+    ports:
+      - "48555:48555"
+    volumes:
+      - grakndata:/grakn-core-all-linux/server/db
+      - ./schema:/schema
+
+volumes:
+  grakndata:
+
+networks:
+  grakn-network:
